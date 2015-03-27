@@ -11,3 +11,4 @@ CREATE TABLE
 shoes=# CREATE DATABASE shoes_tests WITH TEMPLATE shoes;
 CREATE DATABASE
 shoes=#
+SELECT brands.* FROM stores JOIN stores_brands ON stores.id = stores_brands.store_id JOIN brands ON brands.id = stores_brands.brand_id  WHERE stores.id = {$this->getId()};
