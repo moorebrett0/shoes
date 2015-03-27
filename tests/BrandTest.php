@@ -20,9 +20,9 @@
             //Arrange
             $name = "Sketchers";
             $id = null;
-            $test_store = new Brand($name, $id);
+            $test_brand = new Brand($name, $id);
             //Act
-            $result = $test_store->getName();
+            $result = $test_brand->getName();
             //Assert
             $this->assertEquals($name, $result);
         }
@@ -32,9 +32,9 @@
             //Arrange
             $name = "Sketchers";
             $id = 1;
-            $test_store = new Brand($name, $id);
+            $test_brand = new Brand($name, $id);
             //Act
-            $result = $test_store->getId();
+            $result = $test_brand->getId();
             //Assert
             $this->assertEquals(1, $result);
         }
@@ -44,13 +44,13 @@
             //Arrange
             $name = "Sketchers";
             $id = null;
-            $test_store = new Brand($name, $id);
+            $test_brand = new Brand($name, $id);
 
             //Act
-            $test_store->setId(2);
+            $test_brand->setId(2);
 
             //Assert
-            $result = $test_store->getId();
+            $result = $test_brand->getId();
             $this->assertEquals(2, $result);
         }
         //needs getall to work properly
@@ -59,15 +59,15 @@
             //Arrange
             $name = "Sketchers";
             $id = 1;
-            $test_store = new Brand($name, $id);
-            $test_store->save();
+            $test_brand = new Brand($name, $id);
+            $test_brand->save();
 
             //Act
             $result = Brand::getAll();
 
             //Assert
 
-            $this->assertEquals($test_store, $result[0]);
+            $this->assertEquals($test_brand, $result[0]);
         }
 
     }
