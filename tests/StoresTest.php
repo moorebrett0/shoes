@@ -88,31 +88,46 @@
            //Assert
            $this->assertEquals([$test_store, $test_store2], $result);
 
-
         }
 
         function test_deleteAll()
         {
             //Arrange
-            {
-                //Arrange
-               $name = "Macys";
-               $id = 1;
-               $name2 = 'Nordstrom';
-               $id2 = 2;
-               $test_store = new Stores($name, $id);
-               $test_store->save();
-               $test_store2 = new Stores($name2, $id2);
-               $test_store2->save();
+           $name = "Macys";
+           $id = 1;
+           $name2 = 'Nordstrom';
+           $id2 = 2;
+           $test_store = new Stores($name, $id);
+           $test_store->save();
+           $test_store2 = new Stores($name2, $id2);
+           $test_store2->save();
 
-               //Act
-               Stores::deleteAll();
-               $result = Stores::getAll();
+           //Act
+           Stores::deleteAll();
+           $result = Stores::getAll();
 
-               //Assert
-               $this->assertEquals([], $result);
+           //Assert
+           $this->assertEquals([], $result);
+        }
 
-            }
+        function test_find()
+        {
+            //Arrange
+            $name = "Macys";
+            $id = 1;
+            $name2 = 'Nordstrom';
+            $id2 = 2;
+            $test_store = new Stores($name, $id);
+            $test_store->save();
+            $test_store2 = new Stores($name2, $id2);
+            $test_store2->save();
+
+            //Act
+            $result = Stores::find($test_store->getId());
+
+            //Assert
+            $this->assertEquals($test_store, $result);
+
         }
     }
 ?>
