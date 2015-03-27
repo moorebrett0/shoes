@@ -20,4 +20,16 @@
             //Assert
             $this->assertEquals($name, $result);
         }
+
+        function test_getId()
+        {
+            //Arrange
+            $name = "Macy's";
+            $id = 1;
+            $test_category = new Stores($name, $id);
+            //Act
+            $result = $test_category->getId();
+            //Assert
+            $this->assertEquals(1, $result);
+        }
     }
