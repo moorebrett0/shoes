@@ -129,5 +129,23 @@
             $this->assertEquals($test_store, $result);
 
         }
+
+        function test_update()
+        {
+            //Arrange
+            $name = "Macys";
+            $id = null;
+            $test_store = new Stores($name, $id);
+            $test_store->save();
+
+            $new_name = "Target";
+
+            //Act
+            $test_store->update($new_name);
+
+            //Assert
+            $this->assertEquals("Target", $test_store->getName());
+        }
+
     }
 ?>
