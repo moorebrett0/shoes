@@ -14,9 +14,9 @@
             //Arrange
             $name = "Macy's";
             $id = null;
-            $test_category = new Stores($name, $id);
+            $test_store = new Stores($name, $id);
             //Act
-            $result = $test_category->getName();
+            $result = $test_store->getName();
             //Assert
             $this->assertEquals($name, $result);
         }
@@ -26,10 +26,25 @@
             //Arrange
             $name = "Macy's";
             $id = 1;
-            $test_category = new Stores($name, $id);
+            $test_store = new Stores($name, $id);
             //Act
-            $result = $test_category->getId();
+            $result = $test_store->getId();
             //Assert
             $this->assertEquals(1, $result);
+        }
+
+        function test_setId()
+        {
+            //Arrange
+            $name = "Macy's";
+            $id = null;
+            $test_store = new Stores($name, $id);
+
+            //Act
+            $test_store->setId(2);
+
+            //Assert
+            $result = $test_store->getId();
+            $this->assertEquals(2, $result);
         }
     }
