@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Shoes</title>
+</head>
+<body>
+    <h1>{{ brand.getName }}</h1>
+
+    {% if stores is not empty %}
+        <p>Here is the Stores that carry this brand</p>
+        <ul>
+            {% for store in stores %}
+                <li>{{ stores.getName }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <h4>Add a Store that carries this Brand:</h4>
+
+    <form action="/add_stores" method="post">
+        <input id="brand_id" name="brand_id" type="hidden" value="{{ brand.getId }}">
+
+        <label for="store_id">Select a Store</label>
+        <select id="store_id" name="store_id" type="text">
+            {% for stores in all_stores %}
+                <option value="{{ stores.getId }}"> {{ stores.getName }} </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Store</button>
+    </form>
+
+    <p><a href="/">Home</a></p>
+
+</body>
+</html>

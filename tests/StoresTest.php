@@ -167,7 +167,8 @@
             $test_store->addBrand($test_brand);
 
             //Assert
-            $this->assertEquals($test_store->getBrands(), [$test_brand]);
+            $result = $test_store->getBrands();
+            $this->assertEquals([$test_brand], $result);
         }
 
         function test_getBrands()
@@ -194,8 +195,8 @@
             $test_store->addBrand($test_brand2);
 
             //Assert
-
-            $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+            $result = $test_store->getBrands();
+            $this->assertEquals([$test_brand, $test_brand2], $result);
         }
     }
 ?>

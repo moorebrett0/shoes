@@ -4,6 +4,7 @@
     * @backupStaticAttributes disabled
     */
     require_once "src/Brand.php";
+    require_once "src/Stores.php";
 
     $DB = new PDO('pgsql:host=localhost;dbname=shoes_tests');
 
@@ -170,7 +171,7 @@
 
           //Assert
 
-          $this->assertEquals($test_store->getBrands(), [$test_brand, $test_brand2]);
+          $this->assertEquals([$test_brand, $test_brand2], $test_store->getBrands());
       }
 
     }
