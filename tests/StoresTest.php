@@ -7,12 +7,18 @@
 
     $DB = new PDO('pgsql:host=localhost;dbname=shoes_tests');
 
-    class CategoryTest extends PHPUnit_Framework_TestCase
+    class StoresTest extends PHPUnit_Framework_TestCase
     {
+
+        protected function tearDown()
+        {
+            Stores::deleteAll();
+        }
+
         function test_getName()
         {
             //Arrange
-            $name = "Macy's";
+            $name = "Macys";
             $id = null;
             $test_store = new Stores($name, $id);
             //Act
@@ -24,7 +30,7 @@
         function test_getId()
         {
             //Arrange
-            $name = "Macy's";
+            $name = "Macys";
             $id = 1;
             $test_store = new Stores($name, $id);
             //Act
@@ -36,7 +42,7 @@
         function test_setId()
         {
             //Arrange
-            $name = "Macy's";
+            $name = "Macys";
             $id = null;
             $test_store = new Stores($name, $id);
 
@@ -51,8 +57,8 @@
         function test_save()
         {
             //Arrange
-            $name = "Macy's";
-            $id = null;
+            $name = "Macys";
+            $id = 1;
             $test_store = new Stores($name, $id);
             $test_store->save();
 
@@ -63,4 +69,23 @@
 
             $this->assertEquals($test_store, $result[0]);
         }
+
+        function test_getAll()
+        {
+            //Arrange
+           $name = "Macys";
+           $id = 1;
+           $name2 = 'Nordstrom';
+           $id2 = 2;
+           $test_store = new Stores($name, $id);
+           $test_store->save();
+           $test_store2 = new Stores($name2, $id2);
+           $test_store2->save();
+           //Act
+           $result = Stores::getAll();
+           //Assert
+           $this->assertEquals([$test_store, $test_store2], $result);
+
+        }
     }
+?>
