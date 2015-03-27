@@ -47,4 +47,20 @@
             $result = $test_store->getId();
             $this->assertEquals(2, $result);
         }
+        //needs getall to work properly
+        function test_save()
+        {
+            //Arrange
+            $name = "Macy's";
+            $id = null;
+            $test_store = new Stores($name, $id);
+            $test_store->save();
+
+            //Act
+            $result = Stores::getAll();
+
+            //Assert
+
+            $this->assertEquals($test_store, $result[0]);
+        }
     }
