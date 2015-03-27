@@ -32,7 +32,7 @@
     //READ singular store
    $app->get("/stores/{id}", function($id) use ($app) {
      $store = Stores::find($id);
-     return $app['twig']->render('store.twig', array('stores' => $store,
+     return $app['twig']->render('store.twig', array('store' => $store,
        'brands' => $store->getBrands(), 'all_brands' => Brand::getAll()));
    });
 
@@ -51,7 +51,7 @@
 
       //CREATE Store
       $app->post("/stores", function() use ($app) {
-         $store = new Stores($_POST['name']);
+         $store = new Stores($_POST['name'], $id = null);
          $store->save();
          return $app['twig']->render('stores.twig', array('stores' => Stores::getAll()));
     });

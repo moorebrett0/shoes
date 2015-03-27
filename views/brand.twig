@@ -9,7 +9,7 @@
         <p>Here is the Stores that carry this brand</p>
         <ul>
             {% for store in stores %}
-                <li>{{ stores.getName }}</li>
+                <li>{{ store.getName }}</li>
             {% endfor %}
         </ul>
     {% endif %}
