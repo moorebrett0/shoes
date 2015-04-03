@@ -46,7 +46,7 @@
      //EDIT a store
      $app->get("/stores/{id}/edit", function($id) use ($app) {
           $store = Stores::find($id);
-          return $app['twig']->render('stores_edit.html.twig', array('store' => $store));
+          return $app['twig']->render('stores_edit.twig', array('store' => $store));
       });
 
       //CREATE Store
@@ -93,9 +93,9 @@
     });
 
     //DELETE singular store
-    $app->delete("/stores{id}", function($id) use ($app) {
-        $storey = Stores::find($id);
-        $storey->delete();
+    $app->delete("/stores/{id}", function($id) use ($app) {
+        $store = Stores::find($id);
+        $store->delete();
         return $app['twig']->render('index.twig', array('stores' => Stores::getAll()));
     });
 
