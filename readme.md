@@ -9,12 +9,12 @@ A user can keep track of all brands sold by stores by simply providing a brand n
 Setup instructions
 
 Clone this git repository
-Set your localhost root folder to ~/shoes/web/
+Set your localhost root folder to ~/assessment4/web/
 Ensure PHP server is running.
-Start Postgres and import shoes.sql database into a new database shoes 4b. Do the same for the test database: shoes_test.sql
+Start Postgres and import shoes.sql database into a new database shoes
+Do the same for the test database: shoes_test.sql
 Use Composer to install required dependencies in the composer.json file
 Start the web app by pointing your browser to the root (http://localhost:8000/)
-
 
 
 
