@@ -6,7 +6,7 @@
     require_once "src/Stores.php";
     require_once "src/Brand.php";
 
-    $DB = new PDO('pgsql:host=localhost;dbname=shoes_tests');
+    $DB = new PDO('pgsql:host=localhost;dbname=shoes_test');
 
     class StoresTest extends PHPUnit_Framework_TestCase
     {
@@ -158,9 +158,9 @@
             $test_store = new Stores($name, $id);
             $test_store->save();
 
-            $brandname = "adidas";
+            $brand_name = "adidas";
             $id2 = 2;
-            $test_brand = new Brand($brandname, $id2);
+            $test_brand = new Brand($brand_name, $id2);
             $test_brand->save();
 
             //Act
